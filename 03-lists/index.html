@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Working with Lists un Vue -->
+    <div id="root">
+      <ul>
+        <li v-for="name in names" v-text="name"></li>
+        <!-- <li v-for='name in names'>{{name}}</li> -->
+      </ul>
+      <input type="text" id="input" />
+      <button id="button">Add name</button>
+    </div>
+
+    <script src="https://unpkg.com/vue@2.6.12/dist/vue.js"></script>
+    <script>
+      var app = new Vue({
+        el: "#root",
+        data: {
+          foo: "Hello Vue",
+          names: ["Mohamad", "Shooka", "Amir", "Reza", "Ali"],
+        },
+        mounted() {
+          document.querySelector("#button").addEventListener("click", () => {
+            let name = document.querySelector("#input");
+            app.names.push(name.value);
+            name.value = "";
+          });
+        },
+      });
+    </script>
+  </body>
+</html>
