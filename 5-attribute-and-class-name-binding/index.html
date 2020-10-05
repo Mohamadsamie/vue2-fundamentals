@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style type="text/css">
+      .color-red {
+        color: red;
+      }
+      .color-blue {
+        color: blue;
+      }
+      .isLoading {
+        background: rgb(70, 189, 219);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Working with Lists un Vue -->
+    <div id="root">
+      <button
+        :class="{'isLoading' : isLoading}"
+        v-bind:title="title"
+        @click="toggleclass"
+      >
+        Toggle me
+      </button>
+
+      <!-- They are equels -->
+
+      <!-- -<button :title="title">Button</button> -->
+
+      <!-- <h1 :class="className">Hello world</h1> -->
+    </div>
+
+    <script src="https://unpkg.com/vue@2.6.12/dist/vue.js"></script>
+    <script>
+      var app = new Vue({
+        el: "#root",
+        data: {
+          // title: 'foo title',
+          // className: 'color-blue',
+          isLoading: false,
+        },
+        methods: {
+          toggleclass() {
+            this.isLoading = true;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
